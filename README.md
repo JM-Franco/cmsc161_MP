@@ -17,5 +17,5 @@ Criteria
     </ol>
 *Bugs will entail sanctions/deductions from total score*
 
-[Google Doc for Project Description/Ideas]{https://docs.google.com/document/d/13kb5KsKAgbrB6l4yK4e_BoJqdFM9tJDUropCr13Y1C4/edit}
+[Google Doc for Project Description/Ideas](https://docs.google.com/document/d/13kb5KsKAgbrB6l4yK4e_BoJqdFM9tJDUropCr13Y1C4/edit)
 
