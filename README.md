@@ -1,7 +1,7 @@
 CMSC 161: Interactive Computer Graphics
 # Machine Problem
 
-Criteria
+## Criteria
 * Originality - 10%
 * Functionalities - 70%
     <ol type="a">
@@ -17,5 +17,6 @@ Criteria
     </ol>
 *Bugs will entail sanctions/deductions from total score*
 
+## Links
 [Google Doc for Project Description/Ideas](https://docs.google.com/document/d/13kb5KsKAgbrB6l4yK4e_BoJqdFM9tJDUropCr13Y1C4/edit)
 
