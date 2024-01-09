@@ -148,4 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
   promptCanvas: {fileID: 0}
+  useSFX: {fileID: 8300000, guid: 8fe19405a51b3490c89b9f884b4d702a, type: 3}
+  pickupSFX: {fileID: 8300000, guid: 7da9edf0b1539499da177f32249299d4, type: 3}
   item: {fileID: 11400000, guid: 8bf660b78184f40faad47e908cffa39d, type: 2}

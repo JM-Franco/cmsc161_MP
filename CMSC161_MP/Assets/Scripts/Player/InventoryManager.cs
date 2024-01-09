@@ -84,7 +84,12 @@ public class InventoryManager : MonoBehaviour
 
     void ChangeSelectedSlot(int newValue)
     {
-        // Change selected slot
+        // When game is paused, do not accept any input
+        if (Time.timeScale == 0f) 
+        {
+            return;
+        }
+
         if (selectedSlot >= 0)
         {
             inventorySlots[selectedSlot].Deselect();

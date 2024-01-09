@@ -7,13 +7,14 @@ public class Key : MonoBehaviour, IInteractable
 {
     public InventoryManager inventoryManager;
     public GameObject promptCanvas;
+    public AudioClip useSFX, pickupSFX;
     public Item item;
 
     public void Start()
     {
         inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
-        GameObject hud = GameObject.Find("HUD");
-        foreach(Transform t in hud.GetComponentInChildren<Transform>())
+        GameObject ui = GameObject.Find("UI");
+        foreach(Transform t in ui.GetComponentInChildren<Transform>())
         {
             if (t.name == "PromptCanvas")
             {
@@ -35,6 +36,7 @@ public class Key : MonoBehaviour, IInteractable
             promptCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Inventory Slot Full";
             return;
         }
+        SoundFXManager.instance.PlaySoundFXClip(pickupSFX, transform, 1f);
         inventoryManager.AddItem(item);
         //transform.SetParent(inventoryManager.hand.transform);
         //transform.localPosition = Vector3.zero;

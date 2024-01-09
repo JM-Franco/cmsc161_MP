@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,22 +7,22 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private List<Score> scores;
+    private ScoreData sd;
     
     void Awake()
     {
-        var json = PlayerPrefs.GetString("Scores", "{}");
-        scores = JsonUtility.FromJson<List<Score>>(json);
+        string json = PlayerPrefs.GetString("Scores", "{}");
+        sd = JsonUtility.FromJson<ScoreData>(json);
     }
 
     public IEnumerable<Score> GetHighScores()
     {
-        return scores.OrderByDescending(x => x.score);
+        return sd.scores.OrderByDescending(x => x.score);
     }
 
     public void AddScore(Score score)
     {
-        scores.Add(score);
+        sd.scores.Add(score);
     }
 
     public void OnDestroy()
@@ -31,7 +32,7 @@ public class ScoreManager : MonoBehaviour
 
     public void SaveScore()
     {
-        var json = JsonUtility.ToJson(scores);
-        PlayerPrefs.SetString("scores", json);
+        var json = JsonUtility.ToJson(sd);
+        PlayerPrefs.SetString("Scores", json);
     }
 }

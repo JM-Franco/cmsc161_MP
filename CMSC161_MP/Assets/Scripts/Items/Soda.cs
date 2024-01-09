@@ -7,13 +7,14 @@ public class Soda : MonoBehaviour, IInteractable
 {
     public InventoryManager inventoryManager;
     public GameObject promptCanvas;
+    public AudioClip useSFX, pickupSFX;
     public Item item;
 
     public void Start()
     {
         inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
-        GameObject hud = GameObject.Find("HUD");
-        foreach (Transform t in hud.GetComponentInChildren<Transform>())
+        GameObject ui = GameObject.Find("UI");
+        foreach (Transform t in ui.GetComponentInChildren<Transform>())
         {
             if (t.name == "PromptCanvas")
             {
@@ -24,6 +25,7 @@ public class Soda : MonoBehaviour, IInteractable
 
     public void Use()
     {
+        SoundFXManager.instance.PlaySoundFXClip(useSFX, transform, 1f);
         GameObject.Find("FirstPersonPlayer").GetComponent<PlayerMovements>().StartCoroutine(UseSoda());
     }
 
@@ -49,6 +51,7 @@ public class Soda : MonoBehaviour, IInteractable
             promptCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Inventory Slot Full";
             return;
         }
+        SoundFXManager.instance.PlaySoundFXClip(pickupSFX, transform, 1f);
         inventoryManager.AddItem(item);
         Destroy(gameObject);
     }

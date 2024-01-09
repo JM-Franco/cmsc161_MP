@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
   promptCanvas: {fileID: 0}
+  useSFX: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: 3f04d8b477674481fb9e0eeb74bd0095, type: 3}
   item: {fileID: 11400000, guid: f40bdeee50c6d4e968352ab1996dcbd9, type: 2}
 --- !u!65 &5423789282794741834
 BoxCollider:

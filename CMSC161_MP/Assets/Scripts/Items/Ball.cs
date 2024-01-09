@@ -12,8 +12,8 @@ public class Ball : MonoBehaviour, IInteractable
     public void Start()
     {
         inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
-        GameObject hud = GameObject.Find("HUD");
-        foreach (Transform t in hud.GetComponentInChildren<Transform>())
+        GameObject ui = GameObject.Find("UI");
+        foreach (Transform t in ui.GetComponentInChildren<Transform>())
         {
             if (t.name == "PromptCanvas")
             {

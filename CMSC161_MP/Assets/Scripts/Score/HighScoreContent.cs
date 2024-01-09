@@ -11,7 +11,18 @@ public class HighScoreContent : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Setting up High Score Board");
+        string json = PlayerPrefs.GetString("Scores", "{}");
+        Debug.Log("HERE: " + json);
         var scores = scoreManager.GetHighScores().ToArray();
+        string allScores = "";
+        foreach (Score scoreObject in scores)
+        {
+            allScores += scoreObject.score.ToString("F1") + ", "; // "F1" specifies one decimal place
+        }
+        allScores = allScores.TrimEnd(',', ' ');
+        Debug.Log("Content of scores: " + allScores);
+
         for (int i = 0; i < scores.Length; i++)
         {
             var row = Instantiate(highScoreEntry, transform).GetComponent<HighScoreEntry>();

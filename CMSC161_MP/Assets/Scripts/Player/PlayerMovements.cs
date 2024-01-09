@@ -39,7 +39,7 @@ public class PlayerMovements : MonoBehaviour
 
     [Header("Audio")]
 	public AudioClip footStepSound;
-    public float footStepDelay = 0.35f;
+    public float footStepDelay = 0.50f;
     public float nextFootstep = 0;
 
     public MovementState movementState;
@@ -56,21 +56,23 @@ public class PlayerMovements : MonoBehaviour
         {
             movementState = MovementState.crouching;
             movementSpeed = crouchSpeed;
-            footStepSoundRadius = 5f;
+            footStepSoundRadius = 1f;
         }
         // Mode - Sprinting
         if (Input.GetKey(sprintKey) && tiredDuration <= 0f)
         {
             movementState = MovementState.sprinting;
             movementSpeed = sprintSpeed;
-            footStepSoundRadius = 20f;
+            footStepDelay = 0.35f;
+            footStepSoundRadius = 5f;
         }
         // Mode - Walking
         else if (isGrounded)
         {
             movementState = MovementState.walking;
             movementSpeed = walkSpeed;
-            footStepSoundRadius = 10f;
+            footStepDelay = 0.5f;
+            footStepSoundRadius = 3f;
         }
         else
         {
@@ -161,7 +163,7 @@ public class PlayerMovements : MonoBehaviour
         { 
             if (collider.gameObject.name == "Enemy")
             {
-                EnemyAI enemy = collider.GetComponent<EnemyAI>();
+                Enemy enemy = collider.GetComponent<Enemy>();
                 if (enemy != null)
                 {
                     enemy.ChasePlayer();
