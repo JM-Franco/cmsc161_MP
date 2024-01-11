@@ -30,18 +30,15 @@ public class Key : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (!inventoryManager.CheckFreeSlot())
-        {
-            promptCanvas.SetActive(true);
-            promptCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Inventory Slot Full";
-            return;
-        }
+        // if (!inventoryManager.CheckFreeSlot())
+        // {
+        //     promptCanvas.SetActive(true);
+        //     promptCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Inventory Slot Full";
+        //     return;
+        // }
         SoundFXManager.instance.PlaySoundFXClip(pickupSFX, transform, 1f);
-        inventoryManager.AddItem(item);
-        //transform.SetParent(inventoryManager.hand.transform);
-        //transform.localPosition = Vector3.zero;
-        //transform.localRotation = Quaternion.Euler(Vector3.zero);
-        //transform.localScale = Vector3.one;
+        GameManager.instance.keysCollected++;
+        // inventoryManager.AddItem(item);
 
         Destroy(gameObject);
     }

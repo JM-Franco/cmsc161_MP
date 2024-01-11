@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager instance;
     private ScoreData sd;
     
     void Awake()
     {
+        if (instance == null) instance = this;
+
         string json = PlayerPrefs.GetString("Scores", "{}");
         sd = JsonUtility.FromJson<ScoreData>(json);
     }

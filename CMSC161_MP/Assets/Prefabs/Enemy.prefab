@@ -376,6 +376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e09238daba52943e5bbead7ef635e3b0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: e09238daba52943e5bbead7ef635e3b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 83.152214

@@ -56,7 +56,11 @@ public class Health : MonoBehaviour
         {
             if (isAlive) // If player has just died
             {
+                Debug.Log("Playing GameOverBGM");
+                GameObject.Find("GameOverBGM").GetComponent<AudioSource>().Play();
                 SoundFXManager.instance.PlaySoundFXClip(deathSound, transform, 1f);
+                ScoreManager.instance.AddScore(new Score(GameManager.instance.currentTime));
+                ScoreManager.instance.SaveScore();
                 isAlive = false;
             }
             MenuManager.instance.GameOver();
